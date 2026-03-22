@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<link rel="stylesheet" href="style.css">
+<script src="main.js" defer></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Your Ears</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>波形发生器 - 测测你的耳朵</h2>
+
+        <label><br>频率 (Hz)</br></label>
+        <input type="range" id="freqRange" min="-50" max="70" step="1" value="0">
+        <input type="number" id="freq" value="440" min="20" max="21120">
+
+        <label><br>振幅 (0~1)</br></label>
+        <input type="number" id="amp" value="0.5" step="0.01" min="0" max="1">
+
+        <label><br>波形类型</br></label>
+        <div class="select-wrapper">
+            <select id="waveType">
+                <option value="sine">正弦波</option>
+                <option value="square">方波</option>
+                <option value="sawtooth">锯齿波</option>
+                <option value="triangle">三角波</option>
+            </select>
+        </div>
+
+        <button class="play" onclick="play()">播放</button>
+        <button class="stop" onclick="stop()">停止</button>
+
+        <div class="info">
+            ⚠️ 高振幅可能损伤听力，请合理控制相对振幅！当前振幅最大值设为 -6dB
+        </div>
+    </div>
+</body>
+
+</html>
