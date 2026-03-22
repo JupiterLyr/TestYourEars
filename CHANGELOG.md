@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.3.1]
+### Fixed
+- 修复了网页端不主动获取最新页面的 bug
+
 ## [1.3.0]
 ### Added
 - 加入大标题
