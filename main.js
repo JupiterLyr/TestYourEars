@@ -2,6 +2,7 @@ const MIN_FREQ = 20;
 const MAX_FREQ = 28160;
 const MAX_DB = -6;
 const BASE_FREQ = 440;
+const NOTE_NAMES = ["C", "C♯", "D", "E♭", "E", "F", "F♯", "G", "G♯", "A", "B♭", "B"];
 
 let audioCtx = null;
 let oscillator = null;
@@ -18,6 +19,29 @@ function dbToGain(db) {
     return Math.pow(10, db / 20);
 }
 
+function getNoteInfo(freq) {
+    const n = 12 * Math.log2(freq / 440);
+    const nearest = Math.round(n);
+
+    const cents = Math.round((n - nearest) * 100);
+    const noteIndex = (nearest + 9 + 1200) % 12;
+    const octave = 4 + Math.floor((nearest + 9) / 12);
+    return {
+        note: NOTE_NAMES[noteIndex] + octave,
+        cents: cents
+    };
+}
+
+function updateDisplay(freq) {
+    const info = getNoteInfo(freq);
+    let text = info.note;
+    if (info.cents !== 0) {
+        text += (info.cents > 0 ? "+" : "") + info.cents + " cent";
+    }
+    document.getElementById("noteDisplay").innerText = text;
+    document.getElementById("freqDisplay").innerText = Math.round(freq) + " Hz";
+}
+
 function play() {
     const freq = parseFloat(document.getElementById("freq").value);
     const amp = parseFloat(document.getElementById("amp").value);
@@ -32,6 +56,8 @@ function play() {
         return;
     }
     stop(); // 防止叠加
+    updateDisplay(freq);
+    document.getElementById("speaker").innerText = "🔊";
 
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -50,6 +76,7 @@ function play() {
 }
 
 function stop() {
+    document.getElementById("speaker").innerText = "🔈";
     if (oscillator) {
         oscillator.stop();
         oscillator.disconnect();
@@ -65,15 +92,19 @@ const freqRange = document.getElementById("freqRange");
 
 // 初始化同步
 freqRange.value = freqToSlider(freqInput.value);
+updateDisplay(freqInput.value);
 
-// 滑块 -> 输入框
 freqRange.addEventListener("input", () => {
     const freq = sliderToFreq(freqRange.value);
     freqInput.value = Math.round(freq);
+    updateDisplay(freq);
 });
 
-// 输入框 -> 滑块
 freqInput.addEventListener("input", () => {
-    let val = Math.min(MAX_FREQ, Math.max(MIN_FREQ, freqInput.value));
+    let val = parseFloat(freqInput.value);
+    if (isNaN(val)) return;
+    val = Math.min(MAX_FREQ, Math.max(MIN_FREQ, val));
     freqRange.value = freqToSlider(val);
+    updateDisplay(val);
 });
+
