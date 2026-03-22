@@ -1,10 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background: #f5f6fa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    margin: 0;
 }
 
 /* 统一盒模型 */
@@ -12,16 +9,35 @@ body {
     box-sizing: border-box;
 }
 
-h2 {
-    margin-bottom: 16px;
-    text-align: center;
+/* 整个内容垂直居中 */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .wrapper {
     display: flex;
     gap: 24px;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch; /* 适应 flex-start | 等高 stretch */
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.main-title {
+    margin: 0 0 30px;
+    font-size: 32px;
 }
 
 .panel {

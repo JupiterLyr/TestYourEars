@@ -11,59 +11,62 @@
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="container">
 
-        <!-- 左侧：控制面板 -->
-        <div class="panel">
-            <h2>波形发生器</h2>
+        <h1 class="main-title">测测你的耳朵</h1>
+        <div class="wrapper">
+            <!-- 左侧：控制面板 -->
+            <div class="panel">
+                <h2>波形发生器</h2>
 
-            <label><br>频率 (Hz)</br></label>
-            <input type="range" id="freqRange" min="-50" max="70" step="1" value="0">
-            <input type="number" id="freq" value="440">
+                <label><br>频率 (Hz)</br></label>
+                <input type="range" id="freqRange" min="-50" max="70" step="1" value="0">
+                <input type="number" id="freq" value="440">
 
-            <label><br>振幅</br></label>
-            <input type="number" id="amp" value="0.5" step="0.01" min="0" max="1">
+                <label><br>振幅</br></label>
+                <input type="number" id="amp" value="0.5" step="0.01" min="0" max="1">
 
-            <label><br>波形类型</br></label>
-            <div class="select-wrapper">
-                <select id="waveType">
-                    <option value="sine">正弦波</option>
-                    <option value="square">方波</option>
-                    <option value="sawtooth">锯齿波</option>
-                    <option value="triangle">三角波</option>
-                </select>
+                <label><br>波形类型</br></label>
+                <div class="select-wrapper">
+                    <select id="waveType">
+                        <option value="sine">正弦波</option>
+                        <option value="square">方波</option>
+                        <option value="sawtooth">锯齿波</option>
+                        <option value="triangle">三角波</option>
+                    </select>
+                </div>
+
+                <div class="info">
+                    ⚠️ 高振幅可能损伤听力，请合理控制相对振幅！当前振幅最大值设为 -6dB
+                </div>
             </div>
 
-            <div class="info">
-                ⚠️ 高振幅可能损伤听力，请合理控制相对振幅！当前振幅最大值设为 -6dB
+            <!-- 右侧：信息面板 -->
+            <div class="panel">
+                <h2>音高信息</h2>
+                <div class="info-center">
+                    <div id="noteDisplay" style="font-size:28px; text-align:center; margin:20px 0;">
+                        A4
+                    </div>
+                    <div id="freqDisplay" style="text-align:center; color:#666;">
+                        440 Hz
+                    </div>
+                </div>
+
+                <!-- 右下：启停控制 -->
+                <div class="bottom-area">
+                    <div id="speaker" class="speaker" style="text-align:center; font-size:28px;">
+                        🔈
+                    </div>
+
+                    <div class="btn-row">
+                        <button class="play" onclick="play()">播放</button>
+                        <button class="stop" onclick="stop()">停止</button>
+                    </div>
+                </div>
             </div>
+
         </div>
-
-        <!-- 右侧：信息面板 -->
-        <div class="panel">
-            <h2>音高信息</h2>
-            <div class="info-center">
-                <div id="noteDisplay" style="font-size:28px; text-align:center; margin:20px 0;">
-                    A4
-                </div>
-                <div id="freqDisplay" style="text-align:center; color:#666;">
-                    440 Hz
-                </div>
-            </div>
-
-            <!-- 右下：启停控制 -->
-            <div class="bottom-area">
-                <div id="speaker" class="speaker" style="text-align:center; font-size:28px;">
-                    🔈
-                </div>
-
-                <div class="btn-row">
-                    <button class="play" onclick="play()">播放</button>
-                    <button class="stop" onclick="stop()">停止</button>
-                </div>
-            </div>
-        </div>
-
     </div>
 </body>
 
