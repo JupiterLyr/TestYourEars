@@ -1,5 +1,5 @@
-import { updateDisplay, setSpeaker } from "./ui.js?v=1.4.0";
-import { playSound, stopSound } from "./audio.js?v=1.4.0";
+import { updateDisplay, setSpeaker } from "./ui.js";
+import { playSound, stopSound } from "./audio.js";
 
 const MIN_FREQ = 20;
 const MAX_FREQ = 28160;

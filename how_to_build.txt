@@ -1,0 +1,20 @@
+1. This steps can only be operated once:
+
+   Run the following command in the powershell to initialize package.json:
+   npm init -y
+
+2. After modified package.json, run the following command in the powershell to deploy the package-lock.json:
+      npm install --save-dev gh-pages
+
+3. During the development, a debugger should be used for local debugging:
+
+   Select "dev" in the debugger options for local debugging.
+
+4. Each time the development is completed, the following 2 steps must be accomplished.
+   Otherwise, the display on the web page will be incorrect!
+
+   a. Select "build" in the debugger options in package.json to generate publishable files in "dist".
+
+   b. Select "deploy" in the debugger options in package.json to upload the build results to GitHub Pages.
+      When using this, please wait for a while. 
+      After displaying "Published", branch "gh-pages" becomes available on GitHub.

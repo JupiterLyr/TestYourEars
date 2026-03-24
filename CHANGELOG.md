@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.4.1]
+### Fixed
+- 紧急修复网页版格式丢失的问题
+- 优化了缓存管理机制
+
 ## [1.4.0]
 ### Added
 - 适配移动端响应显示问题
