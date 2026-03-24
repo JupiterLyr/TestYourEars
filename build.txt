@@ -1,0 +1,5 @@
+Run this command in the powershell to initialize this project (only run once):
+npm init -y
+
+Run this command in the powershell to build (after modified package.json):
+npm install --save-dev vite

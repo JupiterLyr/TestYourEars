@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.4.0]
+### Added
+- 适配移动端响应显示问题
+
+### Fixed
+- 工程规范化，使用 Vite 管理工程
+- 将所有 JS 和 CSS 文件解耦，放入 `src` 以确保各模块互不干扰
+
 ## [1.3.1]
 ### Fixed
 - 修复了网页端不主动获取最新页面的 bug

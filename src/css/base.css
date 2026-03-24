@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f6fa;
+    margin: 0;
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* 滑块 */
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+}
+
+/* 下拉框 */
+select {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: white;
+    font-size: 14px;
+    appearance: none;
+}
+
+button {
+    flex: 1;
+    padding: 10px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.play {
+    background: #4CAF50;
+    color: white;
+}
+
+.stop {
+    background: #e74c3c;
+    color: white;
+}

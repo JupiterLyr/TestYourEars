@@ -1,107 +1,44 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f6fa;
-    margin: 0;
-}
-
-/* 统一盒模型 */
-* {
-    box-sizing: border-box;
-}
-
-/* 整个内容垂直居中 */
+/* ===== 页面 ===== */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    padding: 12px;
 }
 
 .wrapper {
     display: flex;
     gap: 24px;
     justify-content: center;
-    align-items: stretch; /* 适应 flex-start | 等高 stretch */
+    align-items: stretch;
+    flex-wrap: wrap;
 }
 
-h1 {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-h2 {
-    margin-bottom: 16px;
-    text-align: center;
-}
-
+/* ===== 标题扩展 ===== */
 .main-title {
     margin: 0 0 30px;
     font-size: 32px;
 }
 
+/* ===== 卡片 ===== */
 .panel {
     background: white;
     padding: 24px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     width: 320px;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-/* 输入 */
-input {
-    width: 100%;
-    padding: 8px;
-    margin: 6px 0;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-}
-
-/* 滑块 */
-input[type="range"] {
-    width: 100%;
-    margin: 10px 0;
-}
-
-/* 按钮 */
-button {
-    flex: 1;
-    padding: 10px;
-    margin-top: 8px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.play {
-    background: #4CAF50;
-    color: white;
-}
-
-.stop {
-    background: #e74c3c;
-    color: white;
-}
-
-/* 提示 */
+/* ===== UI组件 ===== */
 .info {
     font-size: 12px;
     color: #666;
     margin-top: 12px;
-}
-
-/* 下拉框 */
-select {
-    width: 100%;
-    padding: 8px;
-    margin: 6px 0 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    background: white;
-    font-size: 14px;
-    appearance: none;
 }
 
 .select-wrapper {
@@ -119,7 +56,7 @@ select {
     font-size: 12px;
 }
 
-/* 右侧布局 */
+/* ===== 右侧结构 ===== */
 .info-center {
     flex: 1;
     display: flex;
@@ -127,7 +64,6 @@ select {
     justify-content: center;
 }
 
-/* 底部区域 */
 .bottom-area {
     margin-top: auto;
     display: flex;
@@ -135,13 +71,12 @@ select {
     gap: 12px;
 }
 
-/* 按钮行 */
 .btn-row {
     display: flex;
     gap: 10px;
 }
 
-/* 显示样式 */
+/* ===== 显示 ===== */
 .note {
     font-size: 28px;
     text-align: center;
@@ -153,9 +88,37 @@ select {
     color: #666;
 }
 
-/* 小喇叭 */
 .speaker {
     text-align: center;
     font-size: 28px;
     margin: 12px 0;
+}
+
+/* ===== 移动端响应式 ===== */
+@media (max-width: 768px) {
+    .container {
+        justify-content: flex-start;
+    }
+
+    .wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .panel {
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .main-title {
+        font-size: 28px;
+    }
+
+    .note {
+        font-size: 24px;
+    }
+
+    .speaker {
+        font-size: 24px;
+    }
 }
