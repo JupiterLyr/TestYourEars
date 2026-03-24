@@ -1,0 +1,15 @@
+{
+  "version": "1.4.0",
+  "configurations": [
+    {
+      "name": "Debug Vite",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+    //   "port": 9229,
+      "console": "integratedTerminal",
+      "autoAttachChildProcesses": true
+    }
+  ]
+}
